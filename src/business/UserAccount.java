@@ -1,6 +1,4 @@
 package business;
-import java.util.*;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserAccount {
@@ -12,6 +10,8 @@ public class UserAccount {
 	private String lastName;
 	private String email;
 	private String phone;
+
+
 	
 	public UserAccount() {	
 	}
@@ -30,6 +30,7 @@ public class UserAccount {
 			errorMessage += "Invalid email.\n";
 		if (!isPhoneNumberValid(phone))
 			errorMessage += "Invalid phone number.\n";
+
 		return errorMessage;
 	}
 
@@ -37,11 +38,19 @@ public class UserAccount {
 		return userName;
 	}
 
+	// Set all characters to lowercase as case is not accounted for
 	public void setUserName(String userName){
-		this.userName = userName;
+
+		this.userName = userName.toLowerCase();
+
 	}
 
+	public String checkUserName(){
+		return this.userName;
+	}
 	// you need to complete this method
+	// Check for empty, check is first char is letter, check is anything
+	// else in string is not a digit or letter
 	public static boolean isUserNameValid(String userName){
 
 		if(userName.equals(""))
@@ -68,6 +77,8 @@ public class UserAccount {
 	}	
 
 	// you need to complete this method
+	// Check is empty, check if less than 6, check if there are spaces, check for at least
+	// one digit, letter, uppercase and lowercase character
 	public static boolean isPasswordValid(String password){
 		boolean upper = false;
 		boolean lower = false;
@@ -123,6 +134,8 @@ public class UserAccount {
 	}
 
 	// you need to complete this method
+	// Check if firstname is empty, check for spaces, check for anything other than letters
+
 	public static boolean isFirstNameValid(String firstName){
 
 		if(firstName.equals(""))
@@ -148,6 +161,7 @@ public class UserAccount {
 
 
 	// you need to complete this method
+	// Check if lastname is empty, check for spaces, check for anything other than letters
 	public static boolean isLastNameValid(String lastName){
 		if(lastName.equals(""))
 			return false;
@@ -174,6 +188,7 @@ public class UserAccount {
 		this.email = email;
 	}
 
+	// Check if email follows format email format
 	public static boolean isValidEmail(String email)
 	{
 		String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ "[a-zA-Z0-9_+&*-]+)*@" +
@@ -186,11 +201,12 @@ public class UserAccount {
 	}
 
 	// you need to complete this method
+	// Check if email is blank, check for format
 	public static boolean isEmailValid(String email){
 		if(email.equals(""))
 			return false;
 
-		if(!isValidEmail(email))
+		else if(!isValidEmail(email))
 			return false;
 
 		// check if email is valid
@@ -206,9 +222,8 @@ public class UserAccount {
 	}
 
 	// you need to complete this method
+	// Check if blank, check that size is exactly 10, check for only digits
 	public static boolean isPhoneNumberValid(String phone) {
-
-
 
 		if (phone.equals(""))
 			return false;

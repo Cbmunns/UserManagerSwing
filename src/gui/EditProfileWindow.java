@@ -123,7 +123,7 @@ public class EditProfileWindow extends JDialog{
 		if(accountActionResult.equals(UserAccountManager.NOINPUTERROR)) 
     		JOptionPane.showMessageDialog(this, "New account created!", "Successful user registration", JOptionPane.INFORMATION_MESSAGE);		
 		else
-			JOptionPane.showMessageDialog(this, "New account is not created!", "Unsuccessful user registration", JOptionPane.INFORMATION_MESSAGE);		
+			JOptionPane.showMessageDialog(this,  accountActionResult + "\nNew account is not created!", "Unsuccessful user registration", JOptionPane.INFORMATION_MESSAGE);
 			
 		this.dispose();
 	}
