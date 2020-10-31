@@ -1,6 +1,6 @@
 package business;
 import java.util.ArrayList;
-import business.UserAccount;
+
 
 
 public class
@@ -21,17 +21,19 @@ UserAccountManager {
     // You need to complete this method
     public String registerNewUser(String userName, String password, String reenteredPassword, 
     		String firstName, String lastName, String email, String phone){
+    		// Check if all main fields are valid, if not add their error
     		checkErrors = UserAccount.checkInputError(userName, password, firstName, lastName, email, phone);
-
+			// If passwords don't match add error
     		if(!reenteredPassword.equals(password))
 				checkErrors += NONMATCHINGPASSWORDERROR;
+    		// If username already exists add error
 			if(doesUserNameExist(userName))
 				checkErrors += USERNAMEEXISTSERROR;
-
+			// If errors exist return them
     		if(!checkErrors.equals(""))
 				return checkErrors;
 
-
+			// Otherwise create the account and return no error
 			UserAccount newAccount = new UserAccount();
 			setAccountProfile(newAccount, userName, password, firstName, lastName, email, phone);
 			userAccounts.add(newAccount);

@@ -40,14 +40,13 @@ public class UserAccount {
 
 	// Set all characters to lowercase as case is not accounted for
 	public void setUserName(String userName){
-
 		this.userName = userName.toLowerCase();
-
 	}
 
 	public String checkUserName(){
 		return this.userName;
 	}
+
 	// you need to complete this method
 	// Check for empty, check is first char is letter, check is anything
 	// else in string is not a digit or letter
@@ -107,7 +106,6 @@ public class UserAccount {
 
 		if(!upper || !lower || !digit || !special)
 			return false;
-
 
 		// check if password is valid
 		return true;
@@ -235,7 +233,6 @@ public class UserAccount {
 			if (!Character.isDigit(phone.charAt(i)))
 				return false;
 		}
-
 
 		// check if phone (number) is valid
 		return true;

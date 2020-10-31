@@ -12,6 +12,7 @@ public class EmailAddressTests extends TestCase {
 		assertTrue(UserAccount.isEmailValid("cbmunns@rehoo.com"));
 		assertTrue(UserAccount.isEmailValid("yada0@yahoo.com"));
 
+		assertFalse(UserAccount.isEmailValid(""));
 		assertFalse(UserAccount.isEmailValid("@fghh.com.fdsdfa"));
 		assertFalse(UserAccount.isEmailValid(".com@nonon"));
 	}

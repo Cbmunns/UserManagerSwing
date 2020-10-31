@@ -1,6 +1,6 @@
 package acceptancetests;
 
-//import business.UserAccount;
+
 import business.UserAccountManager;
 import junit.framework.TestCase;
 
@@ -26,54 +26,54 @@ public class LoginTests extends TestCase{
     }
     // Both fields are left blank
     public void testBothLeftBlankFailure(){
-        assertTrue(userAccountManager.login("","") == null);
+        assertNull(userAccountManager.login("", ""));
 
-        assertTrue(userAccountManager.login("","") == null);
+        assertNull(userAccountManager.login("", ""));
 
-        assertTrue(userAccountManager.login("","") == null);
+        assertNull(userAccountManager.login("", ""));
     }
     // Username left blank
     public void testUserNameBlankFailure(){
-        assertTrue(userAccountManager.login("","@umkcFH310") == null);
+        assertNull(userAccountManager.login("","@umkcFH310"));
 
-        assertTrue(userAccountManager.login("","!2Ghgh") == null);
+        assertNull(userAccountManager.login("","!2Ghgh"));
 
-        assertTrue(userAccountManager.login("","Rad4#a") == null);
+        assertNull(userAccountManager.login("","Rad4#a"));
 
     }
     // Username incorrect
     public void testUserNameNoMatchFailure(){
-        assertTrue(userAccountManager.login("admi","@umkcFH310") == null);
+        assertNull(userAccountManager.login("admi","@umkcFH310"));
 
-        assertTrue(userAccountManager.login("cbunns","!2Ghgh") == null);
+        assertNull(userAccountManager.login("cbunns","!2Ghgh"));
 
-        assertTrue(userAccountManager.login("Can7en","Rad4#a") == null);
+        assertNull(userAccountManager.login("Can7en","Rad4#a"));
 
     }
     // Password left blank
     public void testPasswordBlankFailure(){
-        assertTrue(userAccountManager.login("admin","") == null);
+        assertNull(userAccountManager.login("admin",""));
 
-        assertTrue(userAccountManager.login("cbmunns","") == null);
+        assertNull(userAccountManager.login("cbmunns",""));
 
-        assertTrue(userAccountManager.login("Can7een","") == null);
+        assertNull(userAccountManager.login("Can7een",""));
 
     }
     // Password incorrect
     public void testPasswordNoMatchFailure(){
-        assertTrue(userAccountManager.login("admin","@um10") == null);
+        assertNull(userAccountManager.login("admin","@um10"));
 
-        assertTrue(userAccountManager.login("cbmunns","!2gh") == null);
+        assertNull(userAccountManager.login("cbmunns","!2gh"));
 
-        assertTrue(userAccountManager.login("Can7een","Raa") == null);
+        assertNull(userAccountManager.login("Can7een","Raa"));
     }
     // Username and Password are valid
     public void testSuccessfulLogin(){
-        assertFalse(userAccountManager.login("admin","@umkcFH310") == null);
+        assertNotNull(userAccountManager.login("admin", "@umkcFH310"));
 
-        assertFalse(userAccountManager.login("cbmunns","!2Ghgh") == null);
+        assertNotNull(userAccountManager.login("cbmunns", "!2Ghgh"));
 
-        assertFalse(userAccountManager.login("Can7een","Rad4#a") == null);
+        assertNotNull(userAccountManager.login("Can7een", "Rad4#a"));
 
     }
 

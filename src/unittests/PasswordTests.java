@@ -11,7 +11,7 @@ public class PasswordTests extends TestCase {
 		assertTrue(UserAccount.isPasswordValid("!2Ghgh"));
 		assertTrue(UserAccount.isPasswordValid("Radda@1"));
 
-
+		assertFalse(UserAccount.isPasswordValid(""));
 		assertFalse(UserAccount.isPasswordValid("@W"));
 		assertFalse(UserAccount.isPasswordValid("@White  0House"));
 		assertFalse(UserAccount.isPasswordValid("@hitefdouse"));
